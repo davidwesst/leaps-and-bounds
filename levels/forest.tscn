@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://levels/tilesets/tilemap_packed.tres" type="TileSet" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
@@ -8,10 +8,14 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.52886, 6.47734 )
 
+[sub_resource type="CircleShape2D" id=3]
+radius = 18.1719
+
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 5.19997, 4.80724 )
 
 [node name="Root" type="Node2D"]
+scale = Vector2( 2, 2 )
 
 [node name="Environment" type="Node2D" parent="."]
 editor/display_folded = true
@@ -38,6 +42,17 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 position = Vector2( -0.115982, 1.50778 )
 shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+current = true
+smoothing_enabled = true
+editor_draw_drag_margin = true
+
+[node name="Range" type="Area2D" parent="KinematicBody2D"]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/Range"]
+shape = SubResource( 3 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 71.5859, 119.627 )
