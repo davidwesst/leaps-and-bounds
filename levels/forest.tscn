@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/tilesets/tilemap_packed.tres" type="TileSet" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://items/garbage/tile_0254.png" type="Texture" id=3]
-[ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://items/item.gd" type="Script" id=3]
+[ext_resource path="res://items/garbage/tile_0254.png" type="Texture" id=4]
+[ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.19997, 4.80724 )
@@ -31,12 +32,25 @@ tile_data = PoolIntArray( 0, 2, 65539, 1, 2, 65539, 2, 2, 65539, 3, 2, 65539, 4,
 [node name="Bag" type="StaticBody2D" parent="."]
 editor/display_folded = true
 position = Vector2( 71.5859, 119.627 )
+script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Bag"]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bag"]
 shape = SubResource( 1 )
 
-[node name="HUD" parent="." instance=ExtResource( 4 )]
+[node name="Bag2" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 216.914, 353.404 )
+script = ExtResource( 3 )
+story_path = "hello"
+
+[node name="Sprite" type="Sprite" parent="Bag2"]
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bag2"]
+shape = SubResource( 1 )
+
+[node name="HUD" parent="." instance=ExtResource( 5 )]
 [connection signal="player_action" from="Player" to="HUD" method="_on_player_action"]

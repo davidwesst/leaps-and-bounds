@@ -21,7 +21,8 @@ func try_action():
 		do_action(bodies[0])
 		
 func do_action(target: PhysicsBody2D):
-	emit_signal("player_action")	
+	if(target.story_file != null):
+		emit_signal("player_action", target.story_file, target.story_path)
 
 func get_input():
 	velocity = Vector2()

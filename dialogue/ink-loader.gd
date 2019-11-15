@@ -43,7 +43,10 @@ func _add_runtime():
 func _remove_runtime():
     InkRuntime.deinit(get_tree().root)
 
-func _on_player_action():
+func _on_player_action(story_file: String, story_path: String):
+	print_debug("%s %s" % [story_file, story_path])
+	story.choose_path_string(story_path, true)
+	
 	if $DialogueWindow.visible == false:
 		$DialogueWindow/HBoxContainer/Label.text = story.continue()
 		$DialogueWindow.visible = true
