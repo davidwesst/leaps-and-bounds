@@ -1,8 +1,17 @@
 extends KinematicBody2D
 
+# signals
+signal player_action
+
+# exported variables
 export var speed:int = 200
 
+# global variables
 var velocity: Vector2
+
+func _physics_process(delta):
+	get_input()
+	velocity = move_and_slide(velocity)
 
 func try_action():
 	var bodies = $Range.get_overlapping_bodies()
@@ -12,7 +21,7 @@ func try_action():
 		do_action(bodies[0])
 		
 func do_action(target: PhysicsBody2D):
-	print_debug(target)
+	emit_signal("player_action")	
 
 func get_input():
 	velocity = Vector2()
@@ -29,7 +38,3 @@ func get_input():
 		velocity.y += 1
 		
 	velocity = velocity.normalized() * speed
-	
-func _physics_process(delta):
-	get_input()
-	velocity = move_and_slide(velocity)

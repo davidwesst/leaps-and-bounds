@@ -1,0 +1,86 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends CanvasLayer
+
+func _ready():
+	$DialogueWindow.visible = false
+
+func _on_player_action():
+	if $DialogueWindow.visible == false:
+		$DialogueWindow.visible = true
+	else:
+		$DialogueWindow.visible = false
+"
+
+[node name="HUD" type="CanvasLayer"]
+script = SubResource( 1 )
+
+[node name="DialogueWindow" type="Panel" parent="."]
+editor/display_folded = true
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -80.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueWindow"]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+size_flags_vertical = 9
+
+[node name="Label" type="Label" parent="DialogueWindow/HBoxContainer"]
+margin_right = 884.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+text = "This is some dialogue text that needs to go here."
+autowrap = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueWindow/HBoxContainer"]
+editor/display_folded = true
+margin_left = 888.0
+margin_right = 1008.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="DialogueWindow/HBoxContainer/VBoxContainer"]
+editor/display_folded = true
+margin_right = 120.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="DialogueWindow/HBoxContainer/VBoxContainer/Button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -28.0
+margin_top = -7.0
+margin_right = 28.0
+margin_bottom = 7.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Option 1"
+
+[node name="Button2" type="Button" parent="DialogueWindow/HBoxContainer/VBoxContainer"]
+editor/display_folded = true
+margin_top = 24.0
+margin_right = 120.0
+margin_bottom = 44.0
+
+[node name="Label" type="Label" parent="DialogueWindow/HBoxContainer/VBoxContainer/Button2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -28.0
+margin_top = -7.0
+margin_right = 28.0
+margin_bottom = 7.0
+text = "Option 2"
