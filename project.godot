@@ -19,10 +19,6 @@ config/name="Leaps and Bounds"
 run/main_scene="res://levels/forest.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-Ink="*res://dialogue/ink-loader.gd"
-
 [display]
 
 window/stretch/aspect="keep"

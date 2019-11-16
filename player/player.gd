@@ -3,6 +3,7 @@ extends KinematicBody2D
 # signals
 signal player_action
 signal player_continue
+signal player_choice
 
 # exported properties
 export var speed:int = 200
@@ -50,7 +51,6 @@ func get_input():
 	velocity = velocity.normalized() * speed
 	
 func _on_dialogue_complete():
-	print_debug("dialogue action complete")
-	
+	print_debug("dialogue action complete")	
 	currently_in_action = false
 	
