@@ -30,19 +30,17 @@ text = "This is some dialogue text that needs to go here."
 autowrap = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DialogueWindow/HBoxContainer"]
-editor/display_folded = true
 margin_left = 888.0
 margin_right = 1008.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 120, 0 )
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="DialogueWindow/HBoxContainer/VBoxContainer"]
-editor/display_folded = true
+[node name="Choice1" type="Button" parent="DialogueWindow/HBoxContainer/VBoxContainer"]
 margin_right = 120.0
 margin_bottom = 20.0
 
-[node name="Label" type="Label" parent="DialogueWindow/HBoxContainer/VBoxContainer/Button"]
+[node name="Label" type="Label" parent="DialogueWindow/HBoxContainer/VBoxContainer/Choice1"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -55,13 +53,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Option 1"
 
-[node name="Button2" type="Button" parent="DialogueWindow/HBoxContainer/VBoxContainer"]
-editor/display_folded = true
+[node name="Choice2" type="Button" parent="DialogueWindow/HBoxContainer/VBoxContainer"]
 margin_top = 24.0
 margin_right = 120.0
 margin_bottom = 44.0
 
-[node name="Label" type="Label" parent="DialogueWindow/HBoxContainer/VBoxContainer/Button2"]
+[node name="Label" type="Label" parent="DialogueWindow/HBoxContainer/VBoxContainer/Choice2"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

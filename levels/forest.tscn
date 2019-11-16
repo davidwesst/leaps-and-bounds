@@ -42,16 +42,28 @@ texture = ExtResource( 5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bag"]
 shape = SubResource( 1 )
 
-[node name="Bag2" type="StaticBody2D" parent="."]
+[node name="HelloBag" type="StaticBody2D" parent="."]
 editor/display_folded = true
 position = Vector2( 216.914, 353.404 )
 script = ExtResource( 4 )
 story_path = "hello"
 
-[node name="Sprite" type="Sprite" parent="Bag2"]
+[node name="Sprite" type="Sprite" parent="HelloBag"]
 texture = ExtResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bag2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HelloBag"]
+shape = SubResource( 1 )
+
+[node name="ChoiceBag" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 256.01, 213.309 )
+script = ExtResource( 4 )
+story_path = "choice"
+
+[node name="Sprite" type="Sprite" parent="ChoiceBag"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChoiceBag"]
 shape = SubResource( 1 )
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]

@@ -10,6 +10,7 @@ var Story = load("res://addons/inkgd/runtime/story.gd");
 #	Signals
 #
 signal dialogue_complete
+signal dialogue_choice
 
 #
 #	Properties
@@ -18,6 +19,8 @@ var story
 
 onready var dialogue_window = $DialogueWindow
 onready var dialogue_display = $DialogueWindow/HBoxContainer/Label
+onready var choice1_display = $DialogueWindow/HBoxContainer/VBoxContainer/Choice1/Label
+onready var choice2_display = $DialogueWindow/HBoxContainer/VBoxContainer/Choice2/Label
 
 #
 #	Lifecycle
@@ -71,6 +74,10 @@ func _on_player_action(story_file: String, story_path: String):
 func _on_player_continue():
 	if story.can_continue == true:
 		dialogue_display.text = story.continue()
+	elif story.current_choices.size() > 0:
+		choice1_display.text = story.current_choices[0].text
+		choice2_display.text = story.current_choices[1].text
+		emit_signal("dialogue_choice")
 	else:
 		hide_window()
 		emit_signal("dialogue_complete")
