@@ -7,9 +7,17 @@ var InkRuntime = load("res://addons/inkgd/runtime.gd");
 var Story = load("res://addons/inkgd/runtime/story.gd");
 
 #
+#	Signals
+#
+signal dialogue_complete
+
+#
 #	Properties
 #
 var story
+
+onready var dialogue_window = $DialogueWindow
+onready var dialogue_display = $DialogueWindow/HBoxContainer/Label
 
 #
 #	Lifecycle
@@ -26,7 +34,14 @@ func _exit_tree():
 func start_story():
 	_add_runtime()
 	_load_story("res://dialogue/main.ink.json")
+
+func show_window():
+	_toggle_window(true)
 	
+func hide_window():
+	_toggle_window(false)
+	
+
 #	Private Methods
 #
 func _load_story(path: String):
@@ -36,6 +51,9 @@ func _load_story(path: String):
 	ink_story.close()
 	
 	self.story = Story.new(content)
+
+func _toggle_window(open: bool):
+	dialogue_window.visible = open
 	
 func _add_runtime():
     InkRuntime.init(get_tree().root)
@@ -45,10 +63,15 @@ func _remove_runtime():
 
 func _on_player_action(story_file: String, story_path: String):
 	print_debug("%s %s" % [story_file, story_path])
-	story.choose_path_string(story_path, true)
 	
-	if $DialogueWindow.visible == false:
-		$DialogueWindow/HBoxContainer/Label.text = story.continue()
-		$DialogueWindow.visible = true
+	story.choose_path_string(story_path, true)
+	dialogue_display.text = story.continue()
+	show_window()
+
+func _on_player_continue():
+	if story.can_continue == true:
+		dialogue_display.text = story.continue()
 	else:
-		$DialogueWindow.visible = false
+		hide_window()
+		emit_signal("dialogue_complete")
+		
