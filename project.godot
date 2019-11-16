@@ -23,6 +23,10 @@ config/icon="res://icon.png"
 
 window/stretch/aspect="keep"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "inkgd" )
+
 [input]
 
 player_up={
