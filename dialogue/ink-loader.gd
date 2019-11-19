@@ -15,6 +15,7 @@ signal dialogue_choice
 #
 #	Properties
 #
+export var story_file = "res://dialogue/sample.ink.json"
 var story
 
 onready var dialogue_window = $DialogueWindow
@@ -44,7 +45,7 @@ func _exit_tree():
 #
 func start_story():
 	_add_runtime()
-	_load_story("res://dialogue/main.ink.json")
+	_load_story(story_file)
 
 func show_window():
 	_toggle_window(true)

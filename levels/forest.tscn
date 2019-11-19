@@ -35,6 +35,7 @@ tile_data = PoolIntArray( 0, 2, 65539, 1, 2, 65539, 2, 2, 65539, 3, 2, 65539, 4,
 editor/display_folded = true
 position = Vector2( 71.5859, 119.627 )
 script = ExtResource( 4 )
+story_file = "test-file.ink.json"
 
 [node name="Sprite" type="Sprite" parent="Bag"]
 texture = ExtResource( 5 )
@@ -46,6 +47,7 @@ shape = SubResource( 1 )
 editor/display_folded = true
 position = Vector2( 216.914, 353.404 )
 script = ExtResource( 4 )
+story_file = "test-file.ink.json"
 story_path = "hello"
 
 [node name="Sprite" type="Sprite" parent="HelloBag"]
@@ -58,6 +60,7 @@ shape = SubResource( 1 )
 editor/display_folded = true
 position = Vector2( 256.01, 213.309 )
 script = ExtResource( 4 )
+story_file = "test-file.ink.json"
 story_path = "choice"
 
 [node name="Sprite" type="Sprite" parent="ChoiceBag"]
