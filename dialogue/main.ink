@@ -1,24 +1,20 @@
--> choice
+INCLUDE fuel.ink
 
-=== hello ===
-Hello from Ink!
+VAR car_fuel = 0
+VAR mechanic_skill = 0
 
-You made it.
--> END
+LIST fuels = (gas), rocket, quantum
 
-=== bag ===
-This is a bag on the ground
--> END
+=== function reset_game ===
+// reset variables
+~ car_fuel = 0
+~ mechanic_skill = 0
+~ fuels += (gas, rocket, quantum)
 
-=== choice ===
-Choose wisely.
-*   [Yes] -> positive
-*   [No]  -> negative
-
-= positive
-You said yes. 
--> END
-
-= negative
-You said no. 
--> END
+/*
+    Test Scaffolding
+    
+    To test script in Inky set test_mode to greater than 0 (i.e. test_mode = 1) and select knot and stitch to jump to (i.e. car)
+*/
+VAR test_mode = 1
+-> car
