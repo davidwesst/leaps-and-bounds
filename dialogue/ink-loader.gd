@@ -15,7 +15,7 @@ signal dialogue_choice
 #
 #	Properties
 #
-export var story_file = "res://dialogue/sample.ink.json"
+export var story_file = "res://dialogue/main.ink.json"
 var story
 
 onready var dialogue_window = $DialogueWindow
