@@ -9,7 +9,7 @@ script = ExtResource( 1 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -80.0
+margin_top = -120.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="DialogueWindow"]
 anchor_right = 1.0
@@ -31,39 +31,65 @@ autowrap = true
 [node name="VBoxContainer" type="VBoxContainer" parent="DialogueWindow/HBoxContainer"]
 margin_left = 888.0
 margin_right = 1008.0
-margin_bottom = 64.0
+margin_bottom = 104.0
 rect_min_size = Vector2( 120, 0 )
 size_flags_vertical = 3
+alignment = 1
 
 [node name="Choice1" type="Button" parent="DialogueWindow/HBoxContainer/VBoxContainer"]
+editor/display_folded = true
+margin_top = 6.0
 margin_right = 120.0
-margin_bottom = 20.0
+margin_bottom = 26.0
 
 [node name="Label" type="Label" parent="DialogueWindow/HBoxContainer/VBoxContainer/Choice1"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -28.0
-margin_top = -7.0
-margin_right = 28.0
-margin_bottom = 7.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Option 1"
+align = 1
+valign = 1
 
 [node name="Choice2" type="Button" parent="DialogueWindow/HBoxContainer/VBoxContainer"]
-margin_top = 24.0
+editor/display_folded = true
+margin_top = 30.0
 margin_right = 120.0
-margin_bottom = 44.0
+margin_bottom = 50.0
 
 [node name="Label" type="Label" parent="DialogueWindow/HBoxContainer/VBoxContainer/Choice2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -28.0
-margin_top = -7.0
-margin_right = 28.0
-margin_bottom = 7.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Option 2"
+align = 1
+valign = 1
+
+[node name="Choice3" type="Button" parent="DialogueWindow/HBoxContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 120.0
+margin_bottom = 74.0
+
+[node name="Label" type="Label" parent="DialogueWindow/HBoxContainer/VBoxContainer/Choice3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Option 3"
+align = 1
+valign = 1
+
+[node name="Choice4" type="Button" parent="DialogueWindow/HBoxContainer/VBoxContainer"]
+margin_top = 78.0
+margin_right = 120.0
+margin_bottom = 98.0
+
+[node name="Label" type="Label" parent="DialogueWindow/HBoxContainer/VBoxContainer/Choice4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Option 4"
+align = 1
+valign = 1

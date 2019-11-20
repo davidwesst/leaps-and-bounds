@@ -1,6 +1,11 @@
 extends CanvasLayer
 
 #
+#	Constants
+#
+const MAX_CHOICES: int = 4
+
+#
 #	Imports
 #
 var InkRuntime = load("res://addons/inkgd/runtime.gd");
@@ -23,8 +28,14 @@ onready var dialogue_display = $DialogueWindow/HBoxContainer/Label
 onready var choices = $DialogueWindow/HBoxContainer/VBoxContainer
 onready var choice1_display = $DialogueWindow/HBoxContainer/VBoxContainer/Choice1/Label
 onready var choice2_display = $DialogueWindow/HBoxContainer/VBoxContainer/Choice2/Label
+onready var choice3_display = $DialogueWindow/HBoxContainer/VBoxContainer/Choice3/Label
+onready var choice4_display = $DialogueWindow/HBoxContainer/VBoxContainer/Choice4/Label
 onready var choice1_btn = $DialogueWindow/HBoxContainer/VBoxContainer/Choice1
 onready var choice2_btn = $DialogueWindow/HBoxContainer/VBoxContainer/Choice2
+onready var choice3_btn = $DialogueWindow/HBoxContainer/VBoxContainer/Choice3
+onready var choice4_btn = $DialogueWindow/HBoxContainer/VBoxContainer/Choice4
+
+onready var choice_buttons = [choice1_btn, choice2_btn, choice3_btn, choice4_btn]
 
 #
 #	Lifecycle
@@ -53,11 +64,34 @@ func show_window():
 func hide_window():
 	_toggle_window(false)
 	
-func show_choices():
+func set_choice_text(textArr: Array):
+	var textCount = textArr.size()
+	match textCount:
+		1:
+			choice1_display = textArr[0]
+			continue
+		2:
+			choice2_display = textArr[1]
+			continue
+		3:
+			choice3_display = textArr[2]
+			continue
+		4:
+			choice4_display = textArr[3]
+	
+func show_choices(count: int):
+	var i = 0
+	while i <= count-1:
+		if i <= count-1:
+			choice_buttons[i].visible = true
+		i += 1
+		
 	_toggle_choices(true)
 	
 func hide_choices():
 	_toggle_choices(false)
+	for btn in choice_buttons:
+		btn.visible = false
 	
 
 #	Private Methods
@@ -65,6 +99,8 @@ func hide_choices():
 func _connect_signals():
 	choice1_btn.connect("pressed", self, "_on_choice_selected", [0])
 	choice2_btn.connect("pressed", self, "_on_choice_selected", [1])
+	choice3_btn.connect("pressed", self, "_on_choice_selected", [2])
+	choice4_btn.connect("pressed", self, "_on_choice_selected", [3])
 
 func _load_story(path: String):
 	var ink_story = File.new()
@@ -97,9 +133,13 @@ func _on_player_continue():
 	if story.can_continue == true:
 		dialogue_display.text = story.continue()
 	elif story.current_choices.size() > 0:
-		choice1_display.text = story.current_choices[0].text
-		choice2_display.text = story.current_choices[1].text
-		show_choices()
+		var choiceText = []
+		for choice in story.current_choices:
+			choiceText.append(choice.text)
+			
+		# set_choice_text(choiceText)
+		show_choices(2)
+		
 		emit_signal("dialogue_choice")
 	else:
 		hide_window()
