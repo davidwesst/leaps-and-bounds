@@ -4,7 +4,9 @@ INCLUDE testing.ink
 VAR car_fuel = 0
 VAR mechanic_skill = 0
 
-LIST fuels = (gas), rocket, quantum
+LIST fuels = gas, rocket, quantum
+
+reset_game()
 
 === function reset_game ===
 // reset variables

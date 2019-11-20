@@ -65,20 +65,13 @@ func hide_window():
 	_toggle_window(false)
 	
 func set_choice_text(textArr: Array):
-	var textCount = textArr.size()
-	match textCount:
-		1:
-			choice1_display = textArr[0]
-			continue
-		2:
-			choice2_display = textArr[1]
-			continue
-		3:
-			choice3_display = textArr[2]
-			continue
-		4:
-			choice4_display = textArr[3]
+	var i = 0
+	var end = textArr.size()
 	
+	while i < end:
+		choice_buttons[i].set_text(textArr[i])
+		i += 1
+		
 func show_choices(count: int):
 	var i = 0
 	while i <= count-1:
@@ -136,9 +129,9 @@ func _on_player_continue():
 		var choiceText = []
 		for choice in story.current_choices:
 			choiceText.append(choice.text)
-			
-		# set_choice_text(choiceText)
-		show_choices(2)
+		set_choice_text(choiceText)
+		
+		show_choices(story.current_choices.size())
 		
 		emit_signal("dialogue_choice")
 	else:

@@ -10,7 +10,10 @@ Do you look inside?
                 - else:
                     You see what is clearly a gas can and it's full of gas.
             }
-            ~ fuels = gas
+            ~ fuels = (gas)
+            { test_mode > 0:
+                DEBUG: Fuels acquired {fuels}
+            }
             How convienient!
         - else:
             You see a weird canister that contains a strong smelling liquid that smells a lot like the gas stations you have visited previously.
@@ -25,12 +28,17 @@ Do you look inside?
 - -> END
 
 === car
+{ test_mode > 0:
+    DEBUG
+    <> fuels = {fuels}
+    <> skill = {mechanic_skill}
+}
 Your trusty car.
 Well, trusty might be a strong word right now, but this is car is the gateway to your dream and so running or not, you're going to make this work.
 - (top)
 What would you like to do?
 + [Look Inside] -> inside_car
-+ { fuels == gas } [Fill car with gas]
++ { fuels ? (gas) } [Fill car with gas]
     ~ car_fuel = gas
     ~ fuels -= gas
     You empty the gas can into the fuel tank, as described by the owner's manual. 
