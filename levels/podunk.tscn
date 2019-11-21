@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://levels/forest.gd" type="Script" id=1]
+[ext_resource path="res://levels/podunk.gd" type="Script" id=1]
 [ext_resource path="res://maps/forest-map.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://items/item.gd" type="Script" id=4]
@@ -43,13 +43,13 @@ story_path = "car"
 [node name="HUD" parent="." instance=ExtResource( 7 )]
 
 [node name="EastWall" type="StaticBody2D" parent="."]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EastWall"]
 position = Vector2( 1020.98, 288.192 )
 shape = SubResource( 2 )
 
 [node name="WestWall" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( -1017.16, 1.71237 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WestWall"]

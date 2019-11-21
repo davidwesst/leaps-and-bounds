@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Leaps and Bounds"
-run/main_scene="res://levels/forest.tscn"
+run/main_scene="res://levels/podunk.tscn"
 config/icon="res://icon.png"
 
 [display]
