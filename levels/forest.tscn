@@ -22,7 +22,7 @@ position = Vector2( 263.369, 322.016 )
 
 [node name="Bag" type="StaticBody2D" parent="."]
 editor/display_folded = true
-position = Vector2( 71.5859, 119.627 )
+position = Vector2( 256.01, 213.309 )
 script = ExtResource( 4 )
 story_file = "test-file.ink.json"
 
@@ -30,32 +30,6 @@ story_file = "test-file.ink.json"
 texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bag"]
-shape = SubResource( 1 )
-
-[node name="HelloBag" type="StaticBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 216.914, 353.404 )
-script = ExtResource( 4 )
-story_file = "test-file.ink.json"
-story_path = "hello"
-
-[node name="Sprite" type="Sprite" parent="HelloBag"]
-texture = ExtResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HelloBag"]
-shape = SubResource( 1 )
-
-[node name="ChoiceBag" type="StaticBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 256.01, 213.309 )
-script = ExtResource( 4 )
-story_file = "test-file.ink.json"
-story_path = "choice"
-
-[node name="Sprite" type="Sprite" parent="ChoiceBag"]
-texture = ExtResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChoiceBag"]
 shape = SubResource( 1 )
 
 [node name="Car" parent="." instance=ExtResource( 6 )]
