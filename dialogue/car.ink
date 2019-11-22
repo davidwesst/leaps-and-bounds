@@ -1,32 +1,3 @@
-=== bag
-It's a bag.
-Do you look inside?
-+ [Yes]
-    { 
-        - mechanic_skill > 0:
-            { 
-                - bag > 1:
-                    You recognize that the weird looking canister is a gas can full of gasoline!
-                - else:
-                    You see what is clearly a gas can and it's full of gas.
-            }
-            ~ fuels = (gas)
-            { test_mode > 0:
-                DEBUG: Fuels acquired {fuels}
-            }
-            How convienient!
-        - else:
-            You see a weird canister that contains a strong smelling liquid that smells a lot like the gas stations you have visited previously.
-            Alas, you don't know what you don't know and you close the bag.
-            If you're going to be the universe's greatest mechanic, I wonder if there is a way to increase your skills...
-    }
-+ [No]
-    Really? Wow. 
-    Okay, sure. 
-    You DON'T look inside because that makes sense.
-    
-- -> END
-
 === car
 { test_mode > 0:
     DEBUG
@@ -37,7 +8,8 @@ Your trusty car.
 Well, trusty might be a strong word right now, but this is car is the gateway to your dream and so running or not, you're going to make this work.
 - (top)
 What would you like to do?
-+ [Look Inside] -> inside_car
++ [Get into car] -> inside
++ [Check the trunk] -> trunk
 + { fuels ? (gas) } [Fill car with gas]
     ~ car_fuel = gas
     ~ fuels -= gas
@@ -45,13 +17,14 @@ What would you like to do?
     Your car now has fuel. -> top
 + { car_fuel } [Start the car] -> start_the_car
 + [Nothing]
-
 - -> END
 
-=== inside_car
-You get into the car and look around.
-Where would you like to look?
-+ [Glovebox] -> glovebox
+= inside
+You take a seat and decide to...
++ [Open the Glovebox] -> glovebox
++ [Pop the Trunk] -> open_trunk
++ [Start the Car] -> start_the_car
++ [Get out]
 - -> END
 
 = glovebox
@@ -61,10 +34,19 @@ Open the car's glovebox?
     You notice the manual to your vehicle is inside the glovebox. It's in pristine condition!
     Do you want to take a look though it? -> owners_manual
 + [No]
+- -> END
 
-- -> DONE
+= open_trunk
+POP!
+You hear the trunk open.
+~ is_trunk_open = true
+- -> END
 
-= owners_manual
+= start_the_car
+You start the car and continue your journey on the highway.
+-> END
+
+=== owners_manual
 + [Yes]
     You spend some time going through the owner's manual for your car. 
     ...
@@ -79,6 +61,15 @@ Open the car's glovebox?
 + [No]
 - -> END
 
-=== start_the_car
-You start the car and continue your journey on the highway.
--> END
+=== trunk
+{ 
+    - is_trunk_open == false:
+        One simply does not open a trunk without releasing the latch first.
+        If only there was a way to release the latch.
+    - else:
+        You open the trunk and check inside and see...
+        ...nothing (yet).
+        You shut the trunk thuroughly disappointed. 
+        ~ is_trunk_open = false
+}
+- -> END

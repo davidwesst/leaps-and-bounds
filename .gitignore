@@ -9,3 +9,6 @@ export_presets.cfg
 
 # Tools
 tools/inklecate/
+
+# Ink
+*.ink.json
