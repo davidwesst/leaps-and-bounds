@@ -43,7 +43,12 @@ You hear the trunk open.
 - -> END
 
 = start_the_car
-You start the car and continue your journey on the highway.
+{
+    - car_fuel == gas:
+        -> epilogue.ending_C
+    - else:
+        You hear the engine turn, but without any fuel you're not going anyway.
+}
 -> END
 
 === owners_manual
