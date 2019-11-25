@@ -1,8 +1,7 @@
-INCLUDE testing.ink
 INCLUDE car.ink
-INCLUDE gas.ink
 INCLUDE epilogue.ink
-
+INCLUDE gas.ink
+INCLUDE testing.ink
 
 // player
 VAR mechanic_skill = 0
