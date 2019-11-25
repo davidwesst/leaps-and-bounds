@@ -6,3 +6,11 @@
 */
 VAR test_mode = 1
 -> car
+
+=== function debug_showstate ===
+{ test_mode > 0:
+    (DEBUG)
+    <> -- MECHANICAL SKILL: {mechanic_skill}
+    <> -- ITEMS: {items}
+    <> -- FUELS: {fuels}
+}

@@ -9,13 +9,16 @@ Well, trusty might be a strong word right now, but this is car is the gateway to
 - (top)
 What would you like to do?
 + [Get into car] -> inside
-+ [Check the trunk] -> trunk
-+ { fuels ? (gas) } [Fill car with gas]
++ [Check the exterior]
+        What will you check?
+        ++ [Trunk] -> trunk
+        ++ [Hood] -> hood
+* { fuels ? (gas) } [Fill car with gas]
     ~ car_fuel = gas
     ~ fuels -= gas
     You empty the gas can into the fuel tank, as described by the owner's manual. 
     Your car now has fuel. -> top
-+ { car_fuel } [Start the car] -> start_the_car
++ { car_fuel } [Get In and Start Car] -> start_the_car
 + [Nothing]
 - -> END
 
@@ -23,7 +26,7 @@ What would you like to do?
 You take a seat and decide to...
 + [Open the Glovebox] -> glovebox
 + [Pop the Trunk] -> open_trunk
-+ [Start the Car] -> start_the_car
++ [Pop the Hood] -> open_hood
 + [Get out]
 - -> END
 
@@ -42,6 +45,11 @@ You hear the trunk open.
 ~ is_trunk_open = true
 - -> END
 
+= open_hood
+CLICK!
+You hear the hood release and see it pop up through the windshield.
+- -> END
+
 = start_the_car
 {
     - car_fuel == gas:
@@ -49,7 +57,7 @@ You hear the trunk open.
     - else:
         You hear the engine turn, but without any fuel you're not going anyway.
 }
--> END
+- -> END
 
 === owners_manual
 + [Yes]
@@ -81,11 +89,38 @@ You hear the trunk open.
             { test_mode > 0:
                 DEBUG: items: {items}
             }
-            You take the broken cooler. -> close_trunk
-        + [No] -> close_trunk
-}
-= close_trunk
-You shut the trunk.
-~ is_trunk_open = false
+            You take the broken cooler and close the trunk now that it's empty.
+            ~ is_trunk_open = false
+            -> end_trunk
+        + [No] -> end_trunk
+} 
+= end_trunk
+- -> END
 
+=== hood
+{
+    - is_hood_open == false:
+        The hood appears to be firmly in place, which is probably a good thing when you're driving.
+    - else:
+        { 
+            - mechanic_skill > 0:
+                With your improved mechanical skills, you reach in and open the hidden latch of the hood and lift it open.
+                Inside you see a battery bolted down and a set of jumper cables stored in case of an emergency.
+                What will you do?
+                + [Connect the jumper cables] -> connect_cables
+                + [Leave everything alone] -> exit_hood
+            - else:
+                You see it's open, but cannot figure out how to open it for the life of you.
+                If only these contraptions came with manuals...
+                -> exit_hood
+        }
+            
+}
+= connect_cables
+You connect the cables to the battery and hold onto the other end.
+~ items += cables
+~ debug_showstate()
+-> exit_hood
+
+= exit_hood
 - -> END
