@@ -14,6 +14,7 @@ VAR is_trunk_open = false
 // inventory
 LIST fuels = (gas), rocket, quantum
 
+// TODO: Use or remove the reset function
 //reset_game()
 
 === function reset_game ===
