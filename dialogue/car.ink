@@ -70,11 +70,22 @@ You hear the trunk open.
 { 
     - is_trunk_open == false:
         One simply does not open a trunk without releasing the latch first.
-        If only there was a way to release the latch.
+        If only there was a way to release the latch. 
+        -> END
     - else:
-        You open the trunk and check inside and see...
-        ...nothing (yet).
-        You shut the trunk thuroughly disappointed. 
-        ~ is_trunk_open = false
+        You open the trunk and check inside and see a the broken handheld cooler that super cooled everything you ever put inside it to the point where it was mush.
+        What a weird thing to keep.
+        Take the broken cooler?
+        + [Yes]
+            ~ items += cooler
+            { test_mode > 0:
+                DEBUG: items: {items}
+            }
+            You take the broken cooler. -> close_trunk
+        + [No] -> close_trunk
 }
+= close_trunk
+You shut the trunk.
+~ is_trunk_open = false
+
 - -> END

@@ -10,8 +10,13 @@ VAR mechanic_skill = 0
 VAR car_fuel = 0
 VAR is_trunk_open = false
 
+// cooler properties
+VAR is_full = false
+
 // inventory
 LIST fuels = (gas), rocket, quantum
+
+LIST items = cooler
 
 // TODO: Use or remove the reset function
 //reset_game()
