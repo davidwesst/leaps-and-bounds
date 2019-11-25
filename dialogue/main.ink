@@ -1,6 +1,8 @@
+INCLUDE bag.ink
 INCLUDE car.ink
+INCLUDE ditch.ink
 INCLUDE epilogue.ink
-INCLUDE gas.ink
+INCLUDE gas-station.ink
 INCLUDE testing.ink
 
 // player
@@ -17,7 +19,6 @@ VAR is_hood_open = true
 
 // item properties
 VAR is_cooler_full = false
-VAR is_cable_connected = false
 
 // TODO: Use or remove the reset function
 //reset_game()
