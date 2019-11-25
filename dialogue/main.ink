@@ -6,6 +6,10 @@ INCLUDE testing.ink
 // player
 VAR mechanic_skill = 1
 
+// inventory
+LIST fuels = (gas), rocket, quantum
+LIST items = cooler, cables
+
 // car properties
 VAR car_fuel = 0
 VAR is_trunk_open = false
@@ -14,11 +18,6 @@ VAR is_hood_open = true
 // item properties
 VAR is_cooler_full = false
 VAR is_cable_connected = false
-
-// inventory
-LIST fuels = (gas), rocket, quantum
-
-LIST items = cooler, cables
 
 // TODO: Use or remove the reset function
 //reset_game()

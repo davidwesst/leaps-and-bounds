@@ -68,9 +68,7 @@ You hear the hood release and see it pop up through the windshield.
     WOW! It tell you literally everything you needed to know about the most basic care for your vehicle! 
     You feel like you're on your way to being a being the unverse's best mechanic.
     ~ mechanic_skill++
-    { test_mode > 0:
-        DEBUG: mechanic skill increased
-    }
+    ~ debug_showstate()
 + [No]
 - -> END
 
@@ -86,9 +84,7 @@ You hear the hood release and see it pop up through the windshield.
         Take the broken cooler?
         + [Yes]
             ~ items += cooler
-            { test_mode > 0:
-                DEBUG: items: {items}
-            }
+            ~ debug_showstate()
             You take the broken cooler and close the trunk now that it's empty.
             ~ is_trunk_open = false
             -> end_trunk
