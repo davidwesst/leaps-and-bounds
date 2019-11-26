@@ -18,7 +18,23 @@ What would you like to do?
     ~ fuels -= gas
     You empty the gas can into the fuel tank, as described by the owner's manual. 
     Your car now has fuel. -> top
-+ { car_fuel } [Get In and Start Car] -> start_the_car
+* { fuels ? (oxygen) } [Add oxygen to gas]
+    ~ car_fuel = oxygen
+    ~ fuels -= oxygen
+    You carefully pour the liquid oxygen from your cooler into the gas tank.
+    {
+        - is_car_started == true:
+            It's really too bad you forgot to turn off the car BEFORE you filled your car up with rocket fuel.
+            This newfound rocket car could have probably used a driver.
+            -> epilogue.ending_B
+        - else:
+            ~ car_fuel = oxygen
+            Success! You managed to make a rocket car by turning the gas into rocket fuel!
+    }
++ { car_fuel } { is_car_started == false} [Start the Car] -> start_the_car
++ { car_fuel } { is_car_started == true } [Turn off the Car]
+    ~ is_car_started = false
+    You turn the ignition off and the car engine stops making noise. -> top
 + [Nothing]
 - -> END
 
@@ -52,18 +68,16 @@ You hear the hood release and see it pop up through the windshield.
 
 = start_the_car
 {   
-    - car_fuel == gas:
+    - car_fuel:
         ~ is_car_started = true
-        The car roars to life!
-        {   is_cable_attached == true:
-                Although you appear to have left the jumper cables attached to the ditch for whatever reason. 
-                Maybe you should sort that out before you drive off.
-                -> exit_car
-            - else:
-                Are you ready to go?
-                * [Yes] -> epilogue.ending_C
-                * [No] -> exit_car
-        }
+        Are you ready to go?
+        * [Yes]
+            { 
+              - car_fuel == gas: -> epilogue.ending_C
+              - car_fuel == oxygen: -> epilogue.ending_A
+              - else: -> epilogue.error
+            } 
+        * [No] -> exit_car
     - else:
         You hear the engine turn, but without any fuel you're not going anyway.
         -> exit_car
