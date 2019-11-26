@@ -51,12 +51,25 @@ You hear the hood release and see it pop up through the windshield.
 - -> END
 
 = start_the_car
-{
+{   
     - car_fuel == gas:
-        -> epilogue.ending_C
+        ~ is_car_started = true
+        The car roars to life!
+        {   is_cable_attached == true:
+                Although you appear to have left the jumper cables attached to the ditch for whatever reason. 
+                Maybe you should sort that out before you drive off.
+                -> exit_car
+            - else:
+                Are you ready to go?
+                * [Yes] -> epilogue.ending_C
+                * [No] -> exit_car
+        }
     - else:
         You hear the engine turn, but without any fuel you're not going anyway.
+        -> exit_car
 }
+
+= exit_car
 - -> END
 
 === owners_manual

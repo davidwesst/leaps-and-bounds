@@ -19,6 +19,8 @@ It's thin metal post that seems to be standing upright in the water.
 }
 
 = attach_cable
+~ is_cable_attached = true
+~ items -= cables
 You attach the cable to the post in the water.
 Good thing the cable isn't carrying current, or else that could have been dangerous!
 -> exit_ditch

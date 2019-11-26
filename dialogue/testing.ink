@@ -7,8 +7,10 @@
 VAR test_mode = 1
 
 ~ items += (cables)
+~ car_fuel = gas
+~ is_cable_attached = false
 ~ mechanic_skill = 1000
--> ditch.post
+-> car.start_the_car
 
 === function debug_showstate ===
 { test_mode > 0:
