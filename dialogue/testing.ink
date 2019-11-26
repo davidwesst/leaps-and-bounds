@@ -6,11 +6,12 @@
 */
 VAR test_mode = 1
 
-~ items += (cables)
+~ items -= (cooler)
 ~ car_fuel = gas
-~ is_cable_attached = false
+~ is_cable_attached = true
+~ is_car_started = true
 ~ mechanic_skill = 1000
--> car.start_the_car
+-> ditch.post
 
 === function debug_showstate ===
 { test_mode > 0:
