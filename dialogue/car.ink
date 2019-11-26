@@ -31,8 +31,8 @@ What would you like to do?
             ~ car_fuel = oxygen
             Success! You managed to make a rocket car by turning the gas into rocket fuel!
     }
-+ { car_fuel } { is_car_started == false} [Start the Car] -> start_the_car
-+ { car_fuel } { is_car_started == true } [Turn off the Car]
++ { is_car_started == false} [Start the Car] -> start_the_car
++ { is_car_started == true } [Turn off the Car]
     ~ is_car_started = false
     You turn the ignition off and the car engine stops making noise. -> top
 + [Nothing]
@@ -68,7 +68,7 @@ You hear the hood release and see it pop up through the windshield.
 
 = start_the_car
 {   
-    - car_fuel:
+    - car_fuel != none:
         ~ is_car_started = true
         Are you ready to go?
         * [Yes]
@@ -79,7 +79,7 @@ You hear the hood release and see it pop up through the windshield.
             } 
         * [No] -> exit_car
     - else:
-        You hear the engine turn, but without any fuel you're not going anyway.
+        You hear the engine turn, but without any fuel you're not going anywhere.
         -> exit_car
 }
 
