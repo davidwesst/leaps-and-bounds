@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://levels/podunk.gd" type="Script" id=1]
 [ext_resource path="res://maps/forest-map.tscn" type="PackedScene" id=2]
@@ -8,12 +8,22 @@
 [ext_resource path="res://items/post/tile_0192.png" type="Texture" id=6]
 [ext_resource path="res://items/car/Car.tscn" type="PackedScene" id=7]
 [ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://items/bus-stop/tile_0305.png" type="Texture" id=9]
+[ext_resource path="res://items/bus-stop/tile_0381.png" type="Texture" id=10]
+[ext_resource path="res://items/bus-stop/tile_0192.png" type="Texture" id=11]
+[ext_resource path="res://items/bus-stop/tile_0168.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.19997, 4.80724 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 5.0567, 207.748 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 7.84903, 6.03098 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 2.71704, 5.54694 )
 
 [node name="Forest" type="Node2D"]
 scale = Vector2( 2, 2 )
@@ -28,7 +38,6 @@ position = Vector2( 263.369, 322.016 )
 editor/display_folded = true
 position = Vector2( 256.01, 213.309 )
 script = ExtResource( 4 )
-story_file = "test-file.ink.json"
 
 [node name="Sprite" type="Sprite" parent="Bag"]
 texture = ExtResource( 5 )
@@ -37,6 +46,7 @@ texture = ExtResource( 5 )
 shape = SubResource( 1 )
 
 [node name="Post" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 322.01, 400.309 )
 scale = Vector2( 0.38, 1.48 )
 script = ExtResource( 4 )
@@ -69,3 +79,45 @@ position = Vector2( -1017.16, 1.71237 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WestWall"]
 position = Vector2( 1020.98, 288.192 )
 shape = SubResource( 2 )
+
+[node name="BusStop" type="Node" parent="."]
+
+[node name="Newsstand" type="StaticBody2D" parent="BusStop"]
+editor/display_folded = true
+position = Vector2( 1225.04, 641.31 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 4 )
+story_path = "newsstand"
+
+[node name="Sprite" type="Sprite" parent="BusStop/Newsstand"]
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BusStop/Newsstand"]
+shape = SubResource( 1 )
+
+[node name="Bench" type="StaticBody2D" parent="BusStop"]
+position = Vector2( 1271.11, 636.191 )
+scale = Vector2( 3.16001, 2.44 )
+
+[node name="Sprite" type="Sprite" parent="BusStop/Bench"]
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BusStop/Bench"]
+position = Vector2( 0.110626, 1.93451 )
+shape = SubResource( 3 )
+
+[node name="Sign" type="StaticBody2D" parent="BusStop"]
+editor/display_folded = true
+position = Vector2( 1315.83, 643.933 )
+scale = Vector2( 2, 2 )
+
+[node name="Base" type="Sprite" parent="BusStop/Sign"]
+texture = ExtResource( 11 )
+
+[node name="Top" type="Sprite" parent="BusStop/Sign"]
+position = Vector2( 0, -15.9264 )
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BusStop/Sign"]
+position = Vector2( 0.34967, 1.04895 )
+shape = SubResource( 4 )
