@@ -11,9 +11,7 @@ Do you look inside?
                     You see what is clearly a gas can and it's full of gas.
             }
             ~ fuels = (gas)
-            { test_mode > 0:
-                DEBUG: Fuels acquired {fuels}
-            }
+            ~ debug_showstate()
             How convienient!
         - else:
             You see a weird canister that contains a strong smelling liquid that smells a lot like the gas stations you have visited previously.

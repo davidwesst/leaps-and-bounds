@@ -21,13 +21,22 @@ func try_action():
 		var bodies = $Range.get_overlapping_bodies()
 		bodies.erase(self)
 		
-		if bodies.size() > 0:
-			do_action(bodies[0])	
+		if bodies.size() > 1:
+			var selectedIndex = 0
+			for body in bodies:
+				if "story_file" in body:
+					break
+				else:
+					selectedIndex += 1
+			do_action(bodies[selectedIndex])
+		elif bodies.size() > 0:
+			do_action(bodies[0])
+			
 	else:
 		do_continue()
 		
 func do_action(target: PhysicsBody2D):
-	if(target.story_file != null):
+	if(target && target.story_file):
 		currently_in_action = true
 		emit_signal("player_action", target.story_file, target.story_path)
 		

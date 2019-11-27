@@ -3,7 +3,7 @@ extends CanvasLayer
 #
 #	Constants
 #
-const MAX_CHOICES: int = 4
+const MAX_CHOICES: int = 5
 
 #
 #	Imports
@@ -30,12 +30,20 @@ onready var choice1_display = $DialogueWindow/HBoxContainer/VBoxContainer/Choice
 onready var choice2_display = $DialogueWindow/HBoxContainer/VBoxContainer/Choice2/Label
 onready var choice3_display = $DialogueWindow/HBoxContainer/VBoxContainer/Choice3/Label
 onready var choice4_display = $DialogueWindow/HBoxContainer/VBoxContainer/Choice4/Label
+onready var choice5_display = $DialogueWindow/HBoxContainer/VBoxContainer/Choice5/Label
 onready var choice1_btn = $DialogueWindow/HBoxContainer/VBoxContainer/Choice1
 onready var choice2_btn = $DialogueWindow/HBoxContainer/VBoxContainer/Choice2
 onready var choice3_btn = $DialogueWindow/HBoxContainer/VBoxContainer/Choice3
 onready var choice4_btn = $DialogueWindow/HBoxContainer/VBoxContainer/Choice4
+onready var choice5_btn = $DialogueWindow/HBoxContainer/VBoxContainer/Choice5
 
-onready var choice_buttons = [choice1_btn, choice2_btn, choice3_btn, choice4_btn]
+onready var choice_buttons = [
+	choice1_btn, 
+	choice2_btn, 
+	choice3_btn, 
+	choice4_btn, 
+	choice5_btn
+]
 
 #
 #	Lifecycle
@@ -94,6 +102,7 @@ func _connect_signals():
 	choice2_btn.connect("pressed", self, "_on_choice_selected", [1])
 	choice3_btn.connect("pressed", self, "_on_choice_selected", [2])
 	choice4_btn.connect("pressed", self, "_on_choice_selected", [3])
+	choice5_btn.connect("pressed", self, "_on_choice_selected", [4])
 
 func _load_story(path: String):
 	var ink_story = File.new()

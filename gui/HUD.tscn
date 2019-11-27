@@ -9,7 +9,7 @@ script = ExtResource( 1 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -120.0
+margin_top = -132.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="DialogueWindow"]
 anchor_right = 1.0
@@ -32,15 +32,14 @@ autowrap = true
 editor/display_folded = true
 margin_left = 888.0
 margin_right = 1008.0
-margin_bottom = 104.0
+margin_bottom = 116.0
 rect_min_size = Vector2( 120, 0 )
 size_flags_vertical = 3
 alignment = 1
 
 [node name="Choice1" type="Button" parent="DialogueWindow/HBoxContainer/VBoxContainer"]
-margin_top = 6.0
 margin_right = 120.0
-margin_bottom = 26.0
+margin_bottom = 20.0
 
 [node name="Label" type="Label" parent="DialogueWindow/HBoxContainer/VBoxContainer/Choice1"]
 anchor_right = 1.0
@@ -51,9 +50,9 @@ align = 1
 valign = 1
 
 [node name="Choice2" type="Button" parent="DialogueWindow/HBoxContainer/VBoxContainer"]
-margin_top = 30.0
+margin_top = 24.0
 margin_right = 120.0
-margin_bottom = 50.0
+margin_bottom = 44.0
 
 [node name="Label" type="Label" parent="DialogueWindow/HBoxContainer/VBoxContainer/Choice2"]
 anchor_right = 1.0
@@ -64,9 +63,9 @@ align = 1
 valign = 1
 
 [node name="Choice3" type="Button" parent="DialogueWindow/HBoxContainer/VBoxContainer"]
-margin_top = 54.0
+margin_top = 48.0
 margin_right = 120.0
-margin_bottom = 74.0
+margin_bottom = 68.0
 
 [node name="Label" type="Label" parent="DialogueWindow/HBoxContainer/VBoxContainer/Choice3"]
 anchor_right = 1.0
@@ -77,11 +76,24 @@ align = 1
 valign = 1
 
 [node name="Choice4" type="Button" parent="DialogueWindow/HBoxContainer/VBoxContainer"]
-margin_top = 78.0
+margin_top = 72.0
 margin_right = 120.0
-margin_bottom = 98.0
+margin_bottom = 92.0
 
 [node name="Label" type="Label" parent="DialogueWindow/HBoxContainer/VBoxContainer/Choice4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+align = 1
+valign = 1
+
+[node name="Choice5" type="Button" parent="DialogueWindow/HBoxContainer/VBoxContainer"]
+margin_top = 96.0
+margin_right = 120.0
+margin_bottom = 116.0
+
+[node name="Label" type="Label" parent="DialogueWindow/HBoxContainer/VBoxContainer/Choice5"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3

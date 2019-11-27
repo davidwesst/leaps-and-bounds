@@ -1,24 +1,24 @@
-INCLUDE testing.ink
+INCLUDE bag.ink
+INCLUDE bus-stop.ink
 INCLUDE car.ink
-INCLUDE gas.ink
+INCLUDE ditch.ink
 INCLUDE epilogue.ink
-
+INCLUDE testing.ink
 
 // player
 VAR mechanic_skill = 0
 
-// car properties
-VAR car_fuel = 0
-VAR is_trunk_open = false
-
 // inventory
-LIST fuels = (gas), rocket, quantum
+LIST fuels = none, gas, oxygen
+LIST items = cooler, cables
 
-// TODO: Use or remove the reset function
-//reset_game()
+// car properties
+VAR has_gas = false
+VAR has_oxygen = false
+VAR is_trunk_open = false
+VAR is_hood_open = false
+VAR is_car_started = false
 
-=== function reset_game ===
-// reset variables
-~ car_fuel = 0
-~ mechanic_skill = 0
-~ fuels += (gas, rocket, quantum)
+// environment properties
+VAR is_cable_attached = false
+VAR is_gas_available = false
