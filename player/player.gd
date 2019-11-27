@@ -27,7 +27,7 @@ func try_action():
 		do_continue()
 		
 func do_action(target: PhysicsBody2D):
-	if(target.story_file != null):
+	if(target && target.story_file):
 		currently_in_action = true
 		emit_signal("player_action", target.story_file, target.story_path)
 		
