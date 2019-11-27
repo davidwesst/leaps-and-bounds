@@ -1,8 +1,8 @@
 INCLUDE bag.ink
+INCLUDE bus-stop.ink
 INCLUDE car.ink
 INCLUDE ditch.ink
 INCLUDE epilogue.ink
-INCLUDE gas-station.ink
 INCLUDE testing.ink
 
 // player

@@ -14,7 +14,7 @@ VAR test_mode = 0
     ~ mechanic_skill = 1000
 }
 
--> car
+-> ditch
 
 === function debug_showstate ===
 { test_mode > 0:

@@ -40,7 +40,7 @@ shape = SubResource( 1 )
 position = Vector2( 322.01, 400.309 )
 scale = Vector2( 0.38, 1.48 )
 script = ExtResource( 4 )
-story_path = "ditch"
+story_path = "ditch.post"
 
 [node name="Sprite" type="Sprite" parent="Post"]
 texture = ExtResource( 6 )
