@@ -13,7 +13,8 @@ LIST fuels = none, gas, oxygen
 LIST items = cooler, cables
 
 // car properties
-VAR car_fuel = none
+VAR has_gas = false
+VAR has_oxygen = false
 VAR is_trunk_open = false
 VAR is_hood_open = false
 VAR is_car_started = false

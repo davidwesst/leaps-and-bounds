@@ -1,9 +1,5 @@
 === car
-{ test_mode > 0:
-    DEBUG
-    <> fuels = {fuels}
-    <> skill = {mechanic_skill}
-}
+~ debug_showstate()
 Your trusty car.
 Well, trusty might be a strong word right now, but this is car is the gateway to your dream and so running or not, you're going to make this work.
 - (top)
@@ -14,12 +10,12 @@ What would you like to do?
         ++ [Trunk] -> trunk
         ++ [Hood] -> hood
 * { fuels ? (gas) } [Fill car with gas]
-    ~ car_fuel = gas
+    ~ has_gas = true
     ~ fuels -= gas
     You empty the gas can into the fuel tank, as described by the owner's manual. 
     Your car now has fuel. -> top
 * { fuels ? (oxygen) } [Add oxygen to gas]
-    ~ car_fuel = oxygen
+    ~ has_oxygen = true
     ~ fuels -= oxygen
     You carefully pour the liquid oxygen from your cooler into the gas tank.
     {
@@ -28,8 +24,8 @@ What would you like to do?
             This newfound rocket car could have probably used a driver.
             -> epilogue.ending_B
         - else:
-            ~ car_fuel = oxygen
             Success! You managed to make a rocket car by turning the gas into rocket fuel!
+            ~ debug_showstate()
     }
 + { is_car_started == false} [Start the Car] -> start_the_car
 + { is_car_started == true } [Turn off the Car]
@@ -40,9 +36,9 @@ What would you like to do?
 
 = inside
 You take a seat and decide to...
-+ [Open the Glovebox] -> glovebox
-+ [Pop the Trunk] -> open_trunk
-+ [Pop the Hood] -> open_hood
++ [Open the Glovebox] -> glovebox -> inside
++ [Pop the Trunk] -> open_trunk -> inside
++ [Pop the Hood] -> open_hood -> inside
 + [Get out]
 - -> END
 
@@ -64,23 +60,29 @@ You hear the trunk open.
 = open_hood
 CLICK!
 You hear the hood release and see it pop up through the windshield.
+~ is_hood_open = true
 - -> END
 
 = start_the_car
-{   
-    - car_fuel != none:
-        ~ is_car_started = true
-        Are you ready to go?
-        * [Yes]
-            { 
-              - car_fuel == gas: -> epilogue.ending_C
-              - car_fuel == oxygen: -> epilogue.ending_A
-              - else: -> epilogue.error
-            } 
-        * [No] -> exit_car
-    - else:
+You turn the key in the ignition...
+~ debug_showstate()
+{
+    - has_gas == false:
         You hear the engine turn, but without any fuel you're not going anywhere.
         -> exit_car
+    - else:
+        ~ is_car_started = true
+        Are you ready to go?
+        + [Yes]
+            {
+              - has_oxygen:
+                -> epilogue.ending_A
+              - has_gas: 
+                -> epilogue.ending_C
+              - else: 
+                -> epilogue.error
+            } 
+        + [No] -> exit_car
 }
 
 = exit_car

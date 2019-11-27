@@ -4,17 +4,7 @@
     
     To test script in Inky set test_mode to greater than 0 (i.e. test_mode = 1) and select knot and stitch to jump to (i.e. car)
 */
-VAR test_mode = 0
-
-{ test_mode > 0:
-    ~ items -= (cooler)
-    ~ fuels += oxygen
-    ~ is_cable_attached = true
-    ~ is_car_started = true
-    ~ mechanic_skill = 1000
-}
-
--> ditch
+VAR test_mode = 1
 
 === function debug_showstate ===
 { test_mode > 0:
@@ -22,4 +12,5 @@ VAR test_mode = 0
     <> -- MECHANICAL SKILL: {mechanic_skill}
     <> -- ITEMS: {items}
     <> -- FUELS: {fuels}
+    <> -- CAR STARTED: {is_car_started}
 }

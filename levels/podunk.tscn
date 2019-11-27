@@ -96,6 +96,7 @@ texture = ExtResource( 9 )
 shape = SubResource( 1 )
 
 [node name="Bench" type="StaticBody2D" parent="BusStop"]
+editor/display_folded = true
 position = Vector2( 1271.11, 636.191 )
 scale = Vector2( 3.16001, 2.44 )
 
