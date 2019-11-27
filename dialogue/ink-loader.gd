@@ -37,7 +37,13 @@ onready var choice3_btn = $DialogueWindow/HBoxContainer/VBoxContainer/Choice3
 onready var choice4_btn = $DialogueWindow/HBoxContainer/VBoxContainer/Choice4
 onready var choice5_btn = $DialogueWindow/HBoxContainer/VBoxContainer/Choice5
 
-onready var choice_buttons = [choice1_btn, choice2_btn, choice3_btn, choice4_btn]
+onready var choice_buttons = [
+	choice1_btn, 
+	choice2_btn, 
+	choice3_btn, 
+	choice4_btn, 
+	choice5_btn
+]
 
 #
 #	Lifecycle
