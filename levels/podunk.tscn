@@ -26,6 +26,7 @@ extents = Vector2( 7.84903, 6.03098 )
 extents = Vector2( 2.71704, 5.54694 )
 
 [node name="Forest" type="Node2D"]
+editor/display_folded = true
 scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
 
