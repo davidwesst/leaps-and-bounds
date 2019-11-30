@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://fonts/fontdata/Montserrat-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://gui/start-button.gd" type="Script" id=2]
+[ext_resource path="res://images/logo.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 96
@@ -53,6 +54,7 @@ by davidwesst"
 align = 1
 
 [node name="Menu" type="VBoxContainer" parent="Content/Left"]
+editor/display_folded = true
 margin_top = 386.0
 margin_right = 603.0
 margin_bottom = 586.0
@@ -69,16 +71,17 @@ rect_min_size = Vector2( 0, 40 )
 text = "Start Game"
 script = ExtResource( 2 )
 
-[node name="Right" type="CenterContainer" parent="Content"]
+[node name="Right" type="VBoxContainer" parent="Content"]
 margin_left = 673.0
 margin_right = 1010.0
 margin_bottom = 586.0
 size_flags_horizontal = 14
+alignment = 1
 
 [node name="Label" type="Label" parent="Content/Right"]
-margin_top = 209.0
+margin_top = 79.0
 margin_right = 337.0
-margin_bottom = 376.0
+margin_bottom = 246.0
 custom_fonts/font = SubResource( 3 )
 text = "WASD to Move
 
@@ -86,3 +89,10 @@ Space to Interact/Continue
 
 Left Mouse to Select Button"
 align = 1
+
+[node name="TextureRect" type="TextureRect" parent="Content/Right"]
+margin_top = 250.0
+margin_right = 337.0
+margin_bottom = 506.0
+texture = ExtResource( 3 )
+stretch_mode = 6
