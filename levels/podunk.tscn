@@ -25,7 +25,8 @@ extents = Vector2( 7.84903, 6.03098 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 2.71704, 5.54694 )
 
-[node name="Forest" type="Node2D"]
+[node name="Podunk" type="Node2D"]
+editor/display_folded = true
 scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
 

@@ -1,7 +1,7 @@
 === car
 ~ debug_showstate()
 Your trusty car.
-Well, trusty might be a strong word right now, but this is car is the gateway to your dream and so running or not, you're going to make this work.
+Well, trusty might be a strong word right now.
 - (top)
 What would you like to do?
 + [Get into car] -> inside
@@ -95,7 +95,7 @@ You turn the key in the ignition...
     ..
     .
     WOW! It tell you literally everything you needed to know about the most basic care for your vehicle! 
-    You feel like you're on your way to being a being the unverse's best mechanic.
+    You feel like you're on your way to being a being the world's first car scientist!
     ~ mechanic_skill++
     ~ debug_showstate()
 + [No]

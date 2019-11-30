@@ -15,9 +15,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Leaps and Bounds"
-run/main_scene="res://levels/podunk.tscn"
-config/icon="res://icon.png"
+config/name="Car Scientist (GitHub Game Off 2019)"
+run/main_scene="res://gui/TitleScreen.tscn"
+config/icon="res://images/logo.png"
 
 [display]
 
