@@ -126,6 +126,7 @@ You turn the key in the ignition...
 {
     - is_hood_open == false:
         The hood appears to be firmly in place, which is probably a good thing when you're driving.
+        -> exit_hood
     - else:
         { 
             - mechanic_skill > 0:
