@@ -22,6 +22,8 @@ config/icon="res://images/logo.png"
 [display]
 
 window/size/resizable=false
+window/size/test_width=1024
+window/size/test_height=600
 window/stretch/aspect="keep"
 
 [editor_plugins]
