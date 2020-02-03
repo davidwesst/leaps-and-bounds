@@ -21,6 +21,7 @@ config/icon="res://images/logo.png"
 
 [display]
 
+window/size/resizable=false
 window/stretch/aspect="keep"
 
 [editor_plugins]
