@@ -119,10 +119,10 @@ func _toggle_choices(show: bool):
 	choices.visible = show
 	
 func _add_runtime():
-    InkRuntime.init(get_tree().root)
+	InkRuntime.init(get_tree().root)
 
 func _remove_runtime():
-    InkRuntime.deinit(get_tree().root)
+	InkRuntime.deinit(get_tree().root)
 
 func _on_player_action(story_file: String, story_path: String):
 	print_debug("%s %s" % [story_file, story_path])

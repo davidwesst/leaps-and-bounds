@@ -32,7 +32,6 @@ margin_right = 603.0
 margin_bottom = 586.0
 
 [node name="TitleContainer" type="VBoxContainer" parent="Content/Left"]
-editor/display_folded = true
 margin_right = 603.0
 margin_bottom = 382.0
 size_flags_horizontal = 3
@@ -54,7 +53,6 @@ by davidwesst"
 align = 1
 
 [node name="Menu" type="VBoxContainer" parent="Content/Left"]
-editor/display_folded = true
 margin_top = 386.0
 margin_right = 603.0
 margin_bottom = 586.0
